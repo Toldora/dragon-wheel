@@ -130,15 +130,15 @@
   }
 }
 
-.main__tiger-decor {
+.main__dragon-decor {
   --aspect-ratio: 0.843;
 
   position: absolute;
-  z-index: var(--z-tiger-decor);
+  z-index: var(--z-dragon-decor);
   aspect-ratio: var(--aspect-ratio);
   user-select: none;
 
-  @include bg-image('/img/decor/tiger');
+  @include bg-image('/img/decor/dragon');
 
   @media (orientation: portrait) {
     right: 10%;
