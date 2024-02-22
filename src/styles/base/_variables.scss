@@ -24,6 +24,11 @@
   --col-dark-tone-ink: #{$col-dark-tone-ink};
   --col-dark-tone-ink-rgb: #{$col-dark-tone-ink-rgb};
   --col-black-chestnut-oak: #{$col-black-chestnut-oak};
+  --col-space-battle-blue: #{$col-space-battle-blue};
+  --col-space-battle-blue-rgb: #{$col-space-battle-blue-rgb};
+  --col-rosy-fluffy-bedspread: #{$col-rosy-fluffy-bedspread};
+  --col-bright-indigo: #{$col-bright-indigo};
+  --col-hot-magenta: #{$col-hot-magenta};
 
   // Z-indexes
   --z-modal-overlay: 14;
@@ -89,7 +94,7 @@
   --scrollbar-color: var(--primary-text-color);
 
   // App overlay
-  --app-overlay-bg: rgba(var(--col-dark-tone-ink-rgb), 45%);
+  --app-overlay-bg: rgba(var(--col-space-battle-blue-rgb), 50%);
 
   // Auth type radio
   --auth-type-radio-bg-hover: rgba(var(--col-total-white-rgb), 15%);

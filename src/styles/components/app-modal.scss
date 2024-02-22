@@ -13,7 +13,7 @@
   visibility: hidden;
 
   @include respond-above(small) {
-    backdrop-filter: blur(to-rem(4));
+    backdrop-filter: blur(to-rem(1));
   }
 
   &--is-visible {

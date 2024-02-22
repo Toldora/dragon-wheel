@@ -32,7 +32,7 @@
 }
 
 .sign-up-form__accent-text {
-  color: var(--col-tibetan-yellow);
+  color: var(--col-rosy-fluffy-bedspread);
 }
 
 .sign-up-form__bonus-img-row {
@@ -42,11 +42,19 @@
 }
 
 .sign-up-form__bonus-img {
-  height: to-rem(80);
-  width: to-rem(80);
+  --size: #{to-rem(80)};
+
+  @include respond-to(medium) {
+    --size: #{to-rem(120)};
+  }
 
   &:not(:last-child) {
     margin-right: to-rem(30);
+  }
+
+  img {
+    height: var(--size);
+    width: var(--size);
   }
 }
 
