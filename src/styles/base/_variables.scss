@@ -28,11 +28,13 @@
   // Z-indexes
   --z-modal-overlay: 14;
   --z-modal: 9;
-  --z-wheel-btn: 5;
-  --z-common-decor: 4;
-  --z-wheel: 3;
-  --z-bottom-decor: 2;
-  --z-dragon-decor: 1;
+  --z-wheel-btn: 6;
+  --z-bonuses-section: 6;
+  --z-common-decor: 5;
+  --z-wheel: 4;
+  --z-neon-decor: 3;
+  --z-dragon-decor: 2;
+  --z-bottom-decor: 1;
   --z-default: 1;
   --z-hidden: -1;
 
@@ -104,13 +106,5 @@
 
   @media (orientation: landscape) {
     --wheel-size-landscape: #{min(52vw, vh(66))};
-
-    @include respond-above(medium) {
-      --wheel-size-landscape: #{min(52vw, vh(63))};
-    }
-
-    @include respond-above(xmedium) {
-      --wheel-size-landscape: #{min(46vw, vh(63))};
-    }
   }
 }

@@ -8,6 +8,9 @@
 }
 
 .main {
+  --dragon-logo-portrait-width: #{min(41vw, to-rem(180))};
+  --dragon-logo-aspect-ratio: 1.65;
+
   position: relative;
   height: vh(100);
   display: flex;
@@ -16,18 +19,14 @@
   justify-content: center;
 
   @media (orientation: landscape) {
-    padding-top: to-rem(70);
-    padding-bottom: vh(11);
-
-    @include respond-above(medium) {
-      padding-top: to-rem(100);
-    }
+    padding-top: vh(9);
+    padding-bottom: vh(9);
   }
 }
 
 .main__cta-btn {
   --border-width: #{to-rem(3)};
-  --border-radius: #{to-rem(14)};
+  --border-radius: #{to-rem(90)};
 
   position: relative;
   z-index: var(--z-wheel-btn);
@@ -42,9 +41,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(180deg, #fedf00 0%, #ff7a00 100%);
+  background-image: linear-gradient(to bottom, #ffc8f3 0%, #7000ff 100%);
   border-radius: var(--border-radius);
-  box-shadow: 0 to-rem(16) to-rem(38) 0 rgba(var(--col-tibetan-yellow-rgb), 70%);
+  box-shadow: 0 to-rem(26) to-rem(46) 0 var(--col-tibetan-yellow);
   font-size: to-rem(36);
   text-transform: uppercase;
   overflow: hidden;
@@ -53,7 +52,7 @@
     transform var(--hover-transition);
 
   @include respond-above(medium) {
-    --border-radius: #{to-rem(20)};
+    --border-width: #{to-rem(5)};
   }
 
   @media (orientation: landscape) {
@@ -84,19 +83,17 @@
     border-radius: var(--border-radius);
     z-index: var(--z-hidden);
     background-image: radial-gradient(
-      54.57% 247.08% at 51% 0%,
-      #bdff00 0%,
-      #04bf00 50%,
-      #007e0d 100%
+      50% 50% at 50% 50%,
+      #545454 0%,
+      #121212 100%
     );
-    box-shadow: to-rem(5) -#{to-rem(9)} to-rem(7) 0
+    box-shadow: to-rem(8) -#{to-rem(15)} to-rem(12) 0
       rgba(var(--col-total-black-rgb), 45%) inset;
   }
 
   @include hover {
     body:not(.wheel-stage-3) & {
-      box-shadow: 0 to-rem(16) to-rem(46) 0
-        rgba(var(--col-tibetan-yellow-rgb), 70%);
+      box-shadow: 0 to-rem(26) to-rem(60) 0 var(--col-tibetan-yellow);
       cursor: pointer;
       transform: translateY(-30%) scale(1.1);
     }
@@ -105,8 +102,43 @@
 
 .main__cta-btn-content {
   filter: drop-shadow(
-    0 to-rem(2.5) to-rem(2.5) rgba(var(--col-total-black-rgb), 35%)
+    0 to-rem(4) to-rem(4) rgba(var(--col-total-black-rgb), 35%)
   );
+}
+
+.main__neon-decor {
+  --aspect-ratio: 1.34;
+
+  position: absolute;
+  z-index: var(--z-neon-decor);
+  aspect-ratio: var(--aspect-ratio);
+  user-select: none;
+
+  @include bg-image('/img/decor/neon-decor');
+
+  @media (orientation: portrait) {
+    top: 52%;
+    left: 51.5%;
+    width: auto;
+    height: calc(var(--wheel-size-portrait) * 1.5);
+    transform: translate(-50%, -50%);
+
+    @include respond-above(small) {
+      top: 52.5%;
+    }
+  }
+
+  @media (orientation: landscape) {
+    top: 46%;
+    left: 50.7%;
+    width: auto;
+    height: calc(var(--wheel-size-landscape) * 1.5);
+    transform: translate(-50%, -50%);
+
+    @include respond-above(medium) {
+      top: 44.6%;
+    }
+  }
 }
 
 .main__bottom-decor {
@@ -122,7 +154,7 @@
   @include bg-image('/img/decor/bottom-decor');
 
   @media (orientation: portrait) {
-    height: vh(18.5);
+    height: vh(19);
   }
 
   @media (orientation: landscape) {
@@ -131,7 +163,7 @@
 }
 
 .main__dragon-decor {
-  --aspect-ratio: 0.843;
+  --aspect-ratio: 0.98;
 
   position: absolute;
   z-index: var(--z-dragon-decor);
@@ -141,55 +173,83 @@
   @include bg-image('/img/decor/dragon');
 
   @media (orientation: portrait) {
-    right: 10%;
-    bottom: 0;
-    width: min(76vw, vh(64) * var(--aspect-ratio));
-    transform: translateX(50%);
+    left: calc(50% + var(--wheel-size-portrait) / 2);
+    top: 50%;
+    height: vh(80);
+    transform: translate(-60%, -37%);
   }
 
   @media (orientation: landscape) {
-    left: calc(50% + var(--wheel-size-landscape) / 2);
-    bottom: 5%;
-    width: min(35vw, vh(72) * var(--aspect-ratio));
-    transform: translateX(-20%);
+    top: 50%;
+    right: 0;
+    width: auto;
+    height: vh(100);
+    transform: translateY(-50%);
   }
 }
 
-.main__jewelry-decor {
-  --aspect-ratio: 1;
+.main__mayan-logo {
+  --aspect-ratio: 4.08;
 
   position: absolute;
   z-index: var(--z-common-decor);
-  top: 50%;
   aspect-ratio: var(--aspect-ratio);
 
-  @include bg-image('/img/decor/jewelry-decor');
+  @include bg-image('/img/decor/mayan-logo');
 
   @media (orientation: portrait) {
-    left: calc(50% - var(--wheel-size-portrait) / 3);
-    width: min(24vw, var(--vh, 1vh) * 13 * var(--aspect-ratio));
-    transform: translate(-85%, -100%);
+    top: calc(
+      to-rem(20) +
+        (var(--dragon-logo-portrait-width) / var(--dragon-logo-aspect-ratio)) /
+        2
+    );
+    left: calc(50% + to-rem(10));
+    width: var(--dragon-logo-portrait-width);
+    transform: translateY(-50%);
   }
 
   @media (orientation: landscape) {
-    left: calc(50% - var(--wheel-size-landscape) / 2);
-    width: min(13.5vw, var(--vh, 1vh) * 24 * var(--aspect-ratio));
-    transform: translate(-53%, -75%);
+    top: vh(4.6);
+    left: calc(50% + var(--wheel-size-landscape) / 2);
+    height: vh(6.5);
+    transform: translateX(30%);
   }
 }
 
-.main__orange-decor {
+.main__dragon-logo {
+  --aspect-ratio: var(--dragon-logo-aspect-ratio);
+
+  position: absolute;
+  z-index: var(--z-common-decor);
+  aspect-ratio: var(--aspect-ratio);
+
+  @include bg-image('/img/decor/dragon-logo');
+
+  @media (orientation: portrait) {
+    top: to-rem(20);
+    right: calc(50% + to-rem(10));
+    width: var(--dragon-logo-portrait-width);
+  }
+
   @media (orientation: landscape) {
-    --aspect-ratio: 1;
+    top: vh(4.6);
+    right: calc(50% + var(--wheel-size-landscape) / 2);
+    height: vh(23);
+    transform: translateX(5%);
+  }
+}
+
+.main__coin-decor {
+  @media (orientation: landscape) {
+    --aspect-ratio: 0.9;
 
     position: absolute;
-    z-index: var(--z-common-decor);
+    z-index: var(--z-dragon-decor);
     aspect-ratio: var(--aspect-ratio);
-    top: calc(50% + var(--wheel-size-landscape) / 3);
-    left: calc(50% - var(--wheel-size-landscape) / 3);
-    width: min(16vw, vh(24) * var(--aspect-ratio));
-    transform: translate(-55%, -45%);
 
-    @include bg-image('/img/decor/orange-decor');
+    @include bg-image('/img/decor/coin-decor');
+    top: vh(59);
+    right: 2%;
+    height: vh(25);
   }
 }

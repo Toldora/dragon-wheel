@@ -21,7 +21,7 @@
 }
 
 .wheel {
-  --btn-size: 22%;
+  --btn-size: 30%;
 
   position: relative;
   z-index: var(--z-wheel);
@@ -46,7 +46,7 @@
     cursor: pointer;
 
     .wheel__btn {
-      transform: translate(-50%, -50%) scale(1.1);
+      transform: translate(-50%, -50%) scale(1.15);
     }
 
     .wheel-stage-3 & {
@@ -62,6 +62,7 @@
 .wheel__main {
   @include bg-image('/img/wheel/main', true);
 
+  background-size: 123%;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -89,36 +90,44 @@
   }
 }
 
-.wheel__frame {
-  @include bg-image('/img/wheel/frame', true);
+.wheel__backdrop {
+  @include bg-image('/img/wheel/backdrop', true);
 
-  background-size: 117%;
-  background-position: 58% 36%;
-  transform: translate(-53%, -50%);
+  background-size: 94%;
+  background-position: center 59%;
+}
+
+.wheel__neon-border {
+  @include bg-image('/img/wheel/neon-border', true);
+
+  background-size: 111%;
+}
+
+.wheel__border {
+  @include bg-image('/img/wheel/border', true);
 }
 
 .wheel__pointer {
   width: auto;
-  height: 18%;
-  aspect-ratio: 0.685;
+  height: 24%;
+  aspect-ratio: 0.688;
   position: absolute;
-  top: -2%;
+  top: -13%;
   left: 50%;
   transform: translateX(-50%);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  filter: drop-shadow(0 to-rem(4) to-rem(26) #81e8ff);
 
-  @include bg-img-webp('/img/wheel/pointer', true);
+  @include bg-image('/img/wheel/pointer');
 }
 
 .wheel__btn {
   width: auto;
   height: var(--btn-size);
-  aspect-ratio: 1.69;
+  aspect-ratio: 1.09;
 
   @include bg-image('/img/wheel/button', true);
 
+  top: 48%;
   transform-origin: center;
   transition: transform var(--hover-transition);
 }
