@@ -17,13 +17,13 @@
 
   &--disabled,
   &:disabled {
-    background-color: var(--col-hot-magenta);
+    background-color: var(--col-space-battle-blue);
     cursor: default;
   }
 
   @include hover {
     &:not(:disabled):not(.app-button--disabled) {
-      background-color: var(--col-bright-indigo);
+      background-color: var(--col-hot-magenta);
     }
   }
 }
